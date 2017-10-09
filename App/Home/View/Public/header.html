@@ -1,0 +1,39 @@
+</head>
+<body>
+
+<!--top-->
+<div class="top">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <div class="logo">
+                    <img src="__PUBLIC__/milan/img/index/logo.png" alt="logo">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--nav-->
+<div class="nav-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="navs clearfix">
+                    <volist name="channel" id="vo">
+                        <div class='nav-item'>
+                            <a href="{:U($vo['link'],array('id'=>$vo['id'],'pid'=>$vo['pid']))}" class="hidden-xs">{$vo.name}</a>
+                           <a class="visible-xs"><?php echo (mb_substr($vo['name'],0,2,'utf-8'));?></a>
+                            <div class="item-blow">
+                                <volist name="vo.child" id="voo">
+                                    <a href="{:U($voo['link'],array('id'=>$voo['id'],'pid'=>$voo['pid']))}">{$voo.name}</a>
+                                </volist>
+                            </div>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--nav-->

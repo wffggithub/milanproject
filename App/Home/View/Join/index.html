@@ -1,0 +1,62 @@
+<include file="Public/head" />
+<include file="Public/header" />
+
+	<!-- banner -->
+	<div class="banner">
+		<img src="__PUBLIC__/milan/img/join/banner.jpg" alt="banner">
+		<!-- <img class="visible-xs" src="__PUBLIC__/milan/img/join/banner_m.jpg" alt="banenr"> -->
+	</div>
+	<!-- banner -->
+
+	<div class="hidden-xs">
+		<img src="__PUBLIC__/milan/img/join/1.jpg" alt="banenr">
+		<img src="__PUBLIC__/milan/img/join/2.jpg" alt="banenr">
+		<img src="__PUBLIC__/milan/img/join/3.jpg" alt="banenr">
+		<img src="__PUBLIC__/milan/img/join/4.jpg" alt="banenr">
+		<img src="__PUBLIC__/milan/img/join/5.jpg" alt="banenr">
+		<img src="__PUBLIC__/milan/img/join/6.jpg" alt="banenr">
+		<img src="__PUBLIC__/milan/img/join/7.jpg" alt="banenr">
+		<img src="__PUBLIC__/milan/img/join/8.jpg" alt="banenr">
+	</div>
+	<div class="visible-xs">
+		<img src="__PUBLIC__/milan/img/join/m_1.jpg" alt="banenr">
+		<img src="__PUBLIC__/milan/img/join/m_2.jpg" alt="banenr">
+		<img src="__PUBLIC__/milan/img/join/m_3.jpg" alt="banenr">
+		<img src="__PUBLIC__/milan/img/join/m_4.jpg" alt="banenr">
+		<img src="__PUBLIC__/milan/img/join/m_5.jpg" alt="banenr">
+		<img src="__PUBLIC__/milan/img/join/m_6.jpg" alt="banenr">
+		<img src="__PUBLIC__/milan/img/join/m_7.jpg" alt="banenr">
+		<div class="row">
+			<div class="col-xs-6">
+				<img src="__PUBLIC__/milan/img/join/m_8.jpg" alt="banenr">
+			</div>
+			<div class="col-xs-6">
+				<img src="__PUBLIC__/milan/img/join/m_9.jpg" alt="banenr">
+			</div>
+		</div>
+	</div>
+
+	<include file="Public/footer" />
+
+	<!-- common js -->
+	<script type="text/javascript">
+		function sq(obj) {
+			var val = $(obj).val().length;
+			if (val < 11) {
+				alert("至少输入11个字符！");
+				$(obj).val($(obj).val().substring(0, 11))
+			}
+		}
+
+		function ta(obj) {
+			var val = $(obj).val().length;
+			if (val > 11) {
+				alert("至多输入11个字符！");
+				$(obj).val($(obj).val().substring(0, 11))
+			}
+		}
+	</script>
+	<!-- common js -->
+</body>
+
+</html>

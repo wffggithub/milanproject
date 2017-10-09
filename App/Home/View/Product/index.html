@@ -1,0 +1,181 @@
+<include file="Public/head" />
+<include file="Public/header" />
+
+	<!-- banner -->
+	<div class="banner">
+		<img src="{$bannerPC['image_path']}" alt="banner">
+		<!-- <div class="container">
+			<div class="row">
+			</div>
+		</div> -->
+	</div>
+	<!-- banner -->
+
+	<!-- sub-nav -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="swiper-container" id="swiper-container2">
+					<div class="swiper-wrapper">
+						<volist name="product_cate" id="vo" key="k">
+						<div class="swiper-slide <if condition="$vo['id'] eq $channel_id">active-nav</if>"><span>{$vo['name']}</span></div>
+						</volist>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+
+	<!-- advan -->
+	<div class="advan">
+		<img src="__PUBLIC__/milan/img/product/advantage.png" class="hidden-xs" alt="advan">
+		<div class="container visible-xs">
+			<div class="row">
+				<div class="col-xs-12">
+					<img src="__PUBLIC__/milan/img/product/advantage1.png" width="100%" alt="advan">
+				</div>
+				<div class="col-xs-12">
+					<img src="__PUBLIC__/milan/img/product/advantage2.png" width="100%" alt="advan">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- advan -->
+
+
+
+
+	<!-- goods -->
+	<div class="goods">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="goods-nav">
+						<a href="#">新品</a> |
+						<a href="#">人气单品</a> |
+						<a href="#">文胸</a> |
+						<a href="#">睡衣</a> |
+						<a href="#">家居服</a> |
+						<a href="#">情趣内衣</a>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="swiper-container swiper2">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img src="__PUBLIC__/milan/img/index/goods1.png" width="100%" alt="goods">
+							</div>
+							<div class="swiper-slide">
+								<img src="__PUBLIC__/milan/img/index/goods2.png" width="100%" alt="goods">
+							</div>
+							<div class="swiper-slide">
+								<img src="__PUBLIC__/milan/img/index/goods3.png" width="100%" alt="goods">
+							</div>
+							<div class="swiper-slide">
+								<img src="__PUBLIC__/milan/img/index/goods4.png" width="100%" alt="goods">
+							</div>
+							<div class="swiper-slide">
+								<img src="__PUBLIC__/milan/img/index/goods5.png" width="100%" alt="goods">
+							</div>
+						</div>
+						<!-- <div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div> -->
+					</div>
+					<script>
+						var swiper2 = new Swiper('.swiper2', {
+							autoplay: 2000,
+							slidesPerView: 5,
+							spaceBetween: 5,
+							observer:true,
+							observeParents:true,
+							pagination: '.swiper-pagination',
+							paginationClickable: true,
+							nextButton: '.swiper-button-next',
+							prevButton: '.swiper-button-prev'
+						})
+						if(document.body.clientWidth < 768){
+							swiper2.params.slidesPerView = '3';
+						}
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- goods -->
+
+
+	<!-- hot -->
+	<div class="hot hot-w">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-7">
+					<div class="hot-l">
+						<img src="__PUBLIC__/milan/img/product/single1.jpg" width="100%" alt="hot1">
+					</div>
+				</div>
+				<div class="col-xs-5">
+					<div class="hot-r hot-txt text-right">
+						<p class="hot-title">集中聚拢  优雅迷人 </p>
+						<p class="hot-con-light hidden-xs">
+							CONCENTRATED GATHER ELEGANT<br>
+							AND CHARMING
+						</p>
+						<P class="hot-con hidden-xs">
+							打造舒适透气的穿着体验 带来灵动<br>
+							清新的视觉感受
+						</P>
+						<p class="hot-btn hot-btn2 pull-right">查看更多</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-5">
+					<div class="hot-l hot-txt text-left">
+						<p class="hot-title">魔力塑撑  沁润丝滑</p>
+						<p class="hot-con-light hidden-xs">
+							CONCENTRATED GATHER ELEGANT<br>
+							AND CHARMING
+						</p>
+						<P class="hot-con hidden-xs">
+							打造舒适透气的穿着体验 带来灵动<br>
+							清新的视觉感受
+						</P>
+						<p class="hot-btn hot-btn2 pull-left">查看更多</p>
+					</div>
+				</div>
+				<div class="col-xs-7">
+					<div class="hot-r">
+						<img src="__PUBLIC__/milan/img/product/single2.jpg" width="100%" alt="hot2">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- hot -->
+
+<include file="Public/footer" />
+	
+	<!-- common js -->
+	<script type="text/javascript">
+		function sq(obj) {
+			var val = $(obj).val().length;
+			if (val < 11) {
+				alert("至少输入11个字符！");
+				$(obj).val($(obj).val().substring(0, 11))
+			}
+		}
+
+		function ta(obj) {
+			var val = $(obj).val().length;
+			if (val > 11) {
+				alert("至多输入11个字符！");
+				$(obj).val($(obj).val().substring(0, 11))
+			}
+		}
+	</script>
+	<!-- common js -->
+</body>
+
+</html>

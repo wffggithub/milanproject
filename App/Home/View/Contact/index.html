@@ -1,0 +1,80 @@
+<include file="Public/head" />
+<include file="Public/header" />
+
+	<!-- banner -->
+	<div class="banner">
+		<img src="{$bannerPC['image_path']}" alt="banner">
+	</div>
+	<!-- banner -->
+
+	<!-- contact -->
+	<div class="container" style="margin:40px auto;">
+		<div class="row">
+			<div class="col-sm-1 hidden-xs"></div>
+			<div class="col-xs-12 col-sm-7" style="height:550px;">
+				<!--map-->
+				{$info['content']}
+				<script type="text/javascript">
+					function reinitIframe() {
+						var iframe = document.getElementById("test");
+						try {
+							var bHeight = iframe.contentWindow.document.body.scrollHeight;
+							var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+							var height = Math.max(bHeight, dHeight);
+							iframe.height = height;
+							console.log(height);
+						} catch (ex) { }
+					}
+					window.setInterval("reinitIframe()", 200);
+				</script>
+				<!--map-->
+			</div>
+			<div class="col-xs-12 col-sm-3">
+				<div class="contact-msg">
+
+					<p style="font-size:16px;">{$info['company']}</p>
+					<p>{$info['brand']}<br>商务热线：{$info['phone']}</p>
+					<p style="font-size:16px;margin:30px 0 15px;">在线留言</p>
+					<!---->
+					<form action="{:U('Message/index')}" enctype="multipart/form-data" method="post" onSubmit="return(form_c());">
+						<div class="form-group">
+							<input type="text" maxlength="20" class="form-control" name='name' id='name' value="" placeholder="姓名">
+						</div>
+						<div class="form-group">
+							<input type="text" maxlength="20" class="form-control" name='phone' id='tel' value="" onkeyup="ta(this)" onBlur="sq(this)" maxlength="11" placeholder="电话">
+						</div>
+						<div class="form-group">
+							<textarea rows="5" name='message' class="form-control" id='neirong' placeholder="您想咨询的内容。"></textarea>
+						</div>
+						<input type="submit" class="msg-submit" value="提交留言" style="font-weight:normal;background-color:#b20010;">
+					</form>
+				</div>
+			</div>
+			<div class="col-sm-1 hidden-xs"></div>
+		</div>
+	</div>
+	<!-- contact -->
+<include file="Public/footer" />
+
+	<!-- common js -->
+	<script type="text/javascript">
+		function sq(obj) {
+			var val = $(obj).val().length;
+			if (val < 11) {
+				alert("至少输入11个字符！");
+				$(obj).val($(obj).val().substring(0, 11))
+			}
+		}
+
+		function ta(obj) {
+			var val = $(obj).val().length;
+			if (val > 11) {
+				alert("至多输入11个字符！");
+				$(obj).val($(obj).val().substring(0, 11))
+			}
+		}
+	</script>
+	<!-- common js -->
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<include file="Public/head" />
+<include file="Public/header" />
+
+	<!-- banner -->
+	<div class="banner">
+		<img src="{$bannerPC['image_path']}" alt="banner">
+		<!-- <div class="container">
+			<div class="row">
+			</div>
+		</div> -->
+	</div>
+	<!-- banner -->
+
+	<!-- sub-nav -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="swiper-container" id="swiper-container2">
+					<div class="swiper-wrapper" style="padding: 0px 36%;">
+						<volist name="store_cate" id="vo">
+							<div class="swiper-slide <if condition="$vo['id'] eq $channel_id">active-nav</if> hidden-xs"><span><a href="{:U($vo['link'],array('id'=>$vo['id'],'pid'=>$vo['pid']))}" <if condition="$vo['id'] eq $channel_id">style="color:#eac0aa"</if>>{$vo['name']}</a></span></div>
+					</volist>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- sub-nav -->
+
+	<!-- market -->
+	<div class="market">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="market-title">终端店铺形象的展示</div>
+					<div class="swiper-container swiper">
+						<div class="swiper-wrapper">
+							<volist name="store" id="vo">
+								<div class="swiper-slide">
+									<img src="{$vo['image_path']}" width="100%" alt="market">
+								</div>
+							</volist>
+						</div>
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+					<script>
+						var swiper = new Swiper('.swiper', {
+							autoplay: 2000,
+							spaceBetween: 100,
+							// loop: true,
+							observer:true,
+							observeParents:true,
+							nextButton: '.swiper-button-next',
+							prevButton: '.swiper-button-prev'
+						})
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- market -->
+
+
+<include file="Public/footer" />
+
+	<!-- common js -->
+	<script type="text/javascript">
+		function sq(obj) {
+			var val = $(obj).val().length;
+			if (val < 11) {
+				alert("至少输入11个字符！");
+				$(obj).val($(obj).val().substring(0, 11))
+			}
+		}
+
+		function ta(obj) {
+			var val = $(obj).val().length;
+			if (val > 11) {
+				alert("至多输入11个字符！");
+				$(obj).val($(obj).val().substring(0, 11))
+			}
+		}
+	</script>
+	<!-- common js -->
+
+</body>
+
+</html>

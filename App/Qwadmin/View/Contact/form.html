@@ -1,0 +1,276 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript" src="__PUBLIC__/uploadify/jquery.uploadify.min.js"></script>
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <form class="form-horizontal" id="form" method="post" action="{:U('update')}">
+
+                            <!-- PAGE CONTENT BEGINS -->
+
+                            <input type="hidden" name="id" value="{$contact.id}" id="aid"/>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-0">
+                                    导航 </label>
+                                <div class="col-sm-9">
+                                    <select id="sid" name="sid" class="col-xs-10 col-sm-5">
+                                        <option value="0">--导航--</option>
+                                        <volist name="category" id="vo">
+                                            <option value="{$vo.id}" <if condition="$vo['id'] eq $contact['sid']">selected</if>>{$vo.name}</option>
+                                        </volist>
+                                    </select>
+
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">选择所属导航。</span>
+											</span>
+                                </div>
+                            </div>
+
+                           <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    品牌名称 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="brand" id="brand" placeholder="品牌名称"
+                                           class="col-xs-10 col-sm-5" value="{$contact['brand']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">品牌名称不能为空。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    公司名称 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="company" id="company" placeholder="公司名称"
+                                           class="col-xs-10 col-sm-5" value="{$contact['company']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">公司名称不能为空。</span>
+											</span>
+                                </div>
+                            </div>
+                           <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    公司地址 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="addr" id="addr" placeholder="公司地址"
+                                           class="col-xs-10 col-sm-5" value="{$contact['addr']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">公司地址不能为空。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    商务热线 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="phone" id="phone" placeholder="商务热线"
+                                           class="col-xs-10 col-sm-5" value="{$contact['phone']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">商务热线不能为空。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    邮件 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="email" id="email" placeholder="邮件"
+                                           class="col-xs-10 col-sm-5" value="{$contact['email']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">邮件不能为空。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    添加地图 </label>
+                                <div class="col-sm-9">
+                                    <script id="editor" name="content" type="text/plain" style="width:1024px;height:500px;"></script>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+
+
+                            <div class="col-md-offset-2 col-md-9">
+                                <button class="btn btn-info submit" type="button">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+
+                            <!-- PAGE CONTENT ENDS -->
+
+
+                        </form>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.js"> </script>
+<script type="text/javascript">
+    var ue = UE.getEditor('editor');
+    var content = '{$contact["content"]}';
+    ue.ready(function() {
+        ue.setContent(content);
+    });
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#tabs").tabs();
+        var editor = KindEditor.create('textarea[name="content"]', {
+            uploadJson: '__PUBLIC__/kindeditor/php/upload_json.php',
+            fileManagerJson: '__PUBLIC__/kindeditor/php/file_manager_json.php',
+            allowFileManager: true,
+            afterBlur: function () {
+                this.sync();
+            }
+        });
+        $(".submit").click(function () {
+            var sid = $("#sid").val();
+            var addr = $("#addr").val();
+            var email = $("#email").val();
+            var brand = $("#brand").val();
+            var phone = $("#phone").val();
+            var company = $("#company").val();
+            var content = $("#content").val();
+            if (sid == 0) {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "导航必须选择。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (company == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "公司名称必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+
+            if (brand == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "品牌名称必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (phone == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "商务热线必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (content == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "请选择插入地图",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+                return;
+            }
+            if (addr == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "公司地址不能为空",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+                return;
+            }
+            if (email == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "邮件不能为空",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+                return;
+            }
+
+            $("#form").submit();
+        });
+    });
+</script>
+</body>
+</html>

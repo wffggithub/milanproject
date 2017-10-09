@@ -1,0 +1,240 @@
+<include file="Public/head" />
+<link rel="stylesheet" type="text/css" href=".__PUBLIC__/milan/plugins/animate.css" />
+<script src=".__PUBLIC__/milan/plugins/wow.min.js" type="text/javascript" charset="utf-8"></script>
+
+<include file="Public/header" />
+
+	<!-- banner -->
+	<div class="banner">
+		<img src="{$bannerPC['image_path']}" alt="banner">
+	</div>
+	<!-- banner -->
+
+	<!-- hot -->
+	<div class="hot">
+		<div class="container">
+			<volist name="product_cate" id="vo" key="k">
+				<?php $m = $k%2 ?>
+				<if condition="$m eq 1">
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="hot-l">
+								<img class="wow slideInLeft" src="{$vo['image_path']}" width="100%" alt="hot1">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="hot-r hot-txt text-center">
+								<p class="hot-title">{$vo['name']}</p>
+								<p class="hot-con hidden-xs" style="width:200px;margin: auto">
+									{$vo['description']}
+								</p>
+								<p class="wow fadeInDown hot-btn"><a href="{:U($vo['link'],array('id'=>$vo['id'],'pid'=>$vo['pid']))}" style="color:#eac0aa">探索更多</a></p>
+							</div>
+						</div>
+					</div>
+				<else />
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="hot-l hot-txt text-center">
+								<p class="hot-title">{$vo['name']}</p>
+								<p class="hot-con hidden-xs" style="width:200px;margin: auto">
+									{$vo['description']}
+								</p>
+								<p class="wow fadeInDown hot-btn"><a href="{:U($vo['link'],array('id'=>$vo['id'],'pid'=>$vo['pid']))}}" style="color:#eac0aa">探索更多</a></p>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="hot-r">
+								<img class="wow slideInRight" src="{$vo['image_path']}" width="100%" alt="hot2">
+							</div>
+						</div>
+					</div>
+				</if>
+			</volist>
+		</div>
+	</div>
+	<!-- hot -->
+
+	<!-- video -->
+	<div class="video">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<video controls="controls" poster="__PUBLIC__/milan/img/index/video.png">
+						<source src="{$video['url']}" type="video/mp4" />
+						<source src="{$video['url']}" type="video/ogg" />
+						Your browser does not support HTML5 video.
+					</video>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- video -->
+
+	<!-- goods -->
+	<div class="goods">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="goods-nav">
+						<!--<a href="#">新品</a> |
+						<a href="#">人气单品</a> |
+						<a href="#">文胸</a> |
+						<a href="#">睡衣</a> |
+						<a href="#">家居服</a> |
+						<a href="#">情趣内衣</a>-->
+						热门推荐
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="swiper-container swiper2">
+						<div class="swiper-wrapper">
+							<volist name="hotData" id="vo">
+								<div class="swiper-slide">
+									<a href="{:U($vo['link'],array('id'=>$vo['id'],'pid'=>$vo['pid']))}"><img src="{$vo['image_path']}" width="100%" alt="goods"></a>
+								</div>
+							</volist>
+						</div>
+						<!-- <div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div> -->
+					</div>
+					<script>
+						var swiper2 = new Swiper('.swiper2', {
+							autoplay: 2000,
+							slidesPerView: 5,
+							spaceBetween: 5,
+							observer:true,
+							observeParents:true,
+							pagination: '.swiper-pagination',
+							paginationClickable: true,
+							nextButton: '.swiper-button-next',
+							prevButton: '.swiper-button-prev'
+						})
+						if(document.body.clientWidth < 768){
+							swiper2.params.slidesPerView = '3';
+						}
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- goods -->
+	
+	<!-- goods -->
+	<div class="goods">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="goods-nav">
+						时尚资讯
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="swiper-container swiper3">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a href="{:U('Latest/index')}"><img src="__PUBLIC__/milan/img/index/news1.png" width="100%" alt="news"></a>
+							</div>
+							<div class="swiper-slide">
+								<a href="{:U('Latest/index')}"><img src="__PUBLIC__/milan/img/index/news2.png" width="100%" alt="news"></a>
+							</div>
+						</div>
+						<!-- <div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div> -->
+					</div>
+					<script>
+						var swiper3 = new Swiper('.swiper3', {
+							autoplay: 2000,
+							slidesPerView: 2,
+							spaceBetween: 10,
+							pagination: '.swiper-pagination',
+							paginationClickable: true,
+							nextButton: '.swiper-button-next',
+							prevButton: '.swiper-button-prev'
+						})
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- goods -->
+
+	<!-- goods -->
+	<div class="goods">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="goods-nav">
+						终端店铺形象的展示
+					</div>
+				</div>
+				<div class="col-xs-12 market">
+					<div class="swiper-container swiper4">
+						<div class="swiper-wrapper">
+							<volist name="store" id="vo">
+							<div class="swiper-slide">
+								<img src="{$vo['image_path']}" width="100%" alt="market">
+							</div>
+							</volist>
+						</div>
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+					<script>
+						var swiper4 = new Swiper('.swiper4', {
+							autoplay: 2000,
+							loop: true,
+							pagination: '.swiper-pagination',
+							paginationClickable: true,
+							nextButton: '.swiper-button-next',
+							prevButton: '.swiper-button-prev'
+						})
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- goods -->
+
+	<div class="advan">
+		<img src="__PUBLIC__/milan/img/index/advantage.png" class="hidden-xs" alt="advan">
+		<div class="container visible-xs">
+			<div class="row">
+				<div class="col-xs-12">
+					<img src="__PUBLIC__/milan/img/index/advantage1.png" width="100%" alt="advan">
+				</div>
+				<div class="col-xs-12">
+					<img src="__PUBLIC__/milan/img/index/advantage2.png" width="100%" alt="advan">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<include file="Public/footer" />
+
+	<!-- common js -->
+	<script type="text/javascript">
+		window.onload = function(){
+			new WOW().init();
+		}
+
+		function sq(obj) {
+			var val = $(obj).val().length;
+			if (val < 11) {
+				alert("至少输入11个字符！");
+				$(obj).val($(obj).val().substring(0, 11))
+			}
+		}
+
+		function ta(obj) {
+			var val = $(obj).val().length;
+			if (val > 11) {
+				alert("至多输入11个字符！");
+				$(obj).val($(obj).val().substring(0, 11))
+			}
+		}
+	</script>
+	<!-- common js -->
+</body>
+
+</html>
